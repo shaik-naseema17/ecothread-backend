@@ -17,9 +17,13 @@ const __dirname = path.dirname(__filename);
 
 // CORS configuration
 app.use(cors({
-    origin: "http://localhost:5173", // React frontend URL
+    origin: [
+        "http://localhost:5173",             // Local dev
+        "https://ecothread-frontend.vercel.app" // Replace with your actual deployed frontend URL
+    ],
     credentials: true,
 }));
+
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
